@@ -1,2 +1,2 @@
 <?php
-$conn = mysqli_connect('localhost', 'root', '', 'db_siakad');
+$conn = mysqli_connect('localhost', 'root', '', 'db_siakad_mik4');

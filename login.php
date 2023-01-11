@@ -8,6 +8,8 @@
    <title>LOGIN</title>
    <!-- Bootstrap -->
    <link rel="stylesheet" href="assets/css/bootstrap.css">
+   <!-- SweetAlert2 -->
+   <link rel="stylesheet" href="plugins/extensions/sweetalert2/sweetalert2.css">
    <style>
       body {
          background-color: #f2f7ff;
@@ -54,6 +56,8 @@
 
    <!-- Bootstrap JS-->
    <script src="assets/js/bootstrap.bundle.js"></script>
+   <!-- SweetAlert JS -->
+   <script src="plugins/extensions/sweetalert2/sweetalert2.all.js"></script>
 </body>
 
 </html>
@@ -64,18 +68,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    $email = $_POST['email'];
    $pws = md5($_POST['pws']);
 
-   echo $email;
-   echo $pws;
-
    $query = $conn->query("SELECT * FROM user WHERE email = '$email' AND password = '$pws'");
    $data = mysqli_fetch_assoc($query);
    $result = mysqli_num_rows($query);
 
    if ($result > 0) {
       session_start();
-      $_SESSION['username'] = $data['nama_lengkap'];
-      $_SESSION['level'] = $data['level'];
+      $_SESSION['email'] = 'm.iqbal.adenan@gmail.com';
+      $_SESSION['nama'] = 'M. IQBAL ADENAN';
+      $_SESSION['level'] = 'Level';
       header('Location:admin/index.php');
+   } else {
+      echo "<script>
+         Swal.fire({
+            title: 'ERROR',
+            text: 'Login gagal, silahkan coba lagi!',
+            icon: 'error'
+         });
+      </script>";
    }
 }
 ?>
