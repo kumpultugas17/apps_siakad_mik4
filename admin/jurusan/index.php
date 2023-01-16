@@ -17,7 +17,7 @@ if (!isset($_SESSION['email'])) {
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
    <!-- Import Bootstrap CSS -->
-   <link rel="stylesheet" href="../assets/css/bootstrap.css">
+   <link rel="stylesheet" href="../../assets/css/bootstrap.css">
    <!-- My Style -->
    <style>
       body {
@@ -66,7 +66,7 @@ if (!isset($_SESSION['email'])) {
                <div class="d-flex">
                   <div class="dropdown">
                      <a class="text-white dropdown-toggle nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="../assets/image/avatar/1.jpg" class="rounded-circle" height="25" alt="avatar">
+                        <img src="../../assets/image/avatar/1.jpg" class="rounded-circle" height="25" alt="avatar">
                         <?= $_SESSION['nama']; ?>
                      </a>
                      <ul class="dropdown-menu">
@@ -89,17 +89,72 @@ if (!isset($_SESSION['email'])) {
          <div class="col-12">
             <div class="card rounded-3 border-0">
                <div class="card-body">
-                  <a href="index.php" class="nav-link breadcrumb-item active fw-bold fs-6 text-secondary">
-                     Dashboard
-                  </a>
+                  <div class="breadcrumb mb-0">
+                     <a href="../index.php" class="nav-link breadcrumb-item active fw-bold fs-6 text-secondary">
+                        Dashboard
+                     </a>
+                     <a href="index.php" class="nav-link breadcrumb-item active fw-bold fs-6 text-secondary">
+                        Jurusan
+                     </a>
+                  </div>
                </div>
             </div>
          </div>
       </div>
    </nav>
 
+   <main>
+      <div class="container">
+         <div class="row my-4 gap-xl-0 gap-lg-0 gap-md-0 gap-4">
+            <div class="col-12 col-md-4 col-lg-4">
+               <div class="card p-3 border-0 rounded-4">
+                  <div class="card-body px-1">
+                     <form action="" method="post">
+                        <div class="mb-3">
+                           <label for="kode_jurusan" class="form-label">Kode Jurusan</label>
+                           <input type="text" name="kode_jurusan" id="kode_jurusan" class="form-control" placeholder="Masukkan kode jurusan">
+                        </div>
+                        <div class="mb-3">
+                           <label for="nama_jurusan" class="form-label">Nama Jurusan</label>
+                           <input type="text" name="nama_jurusan" id="nama_jurusan" class="form-control" placeholder="Masukkan nama jurusan">
+                        </div>
+                        <div class="mb-3">
+                           <label for="status" class="form-label">Status</label>
+                           <select name="status" id="status" class="form-select">
+                              <option disabled selected>Pilih Status</option>
+                              <option value="1">Aktif</option>
+                              <option value="0">Tidak Aktif</option>
+                           </select>
+                        </div>
+                        <button class="btn btn-sm btn-primary" name="simpan" type="submit">Simpan</button>
+                        <button class="btn btn-sm btn-secondary" type="reset">Batal</button>
+                     </form>
+                  </div>
+               </div>
+            </div>
+            <div class="col-12 col-md-8 col-lg-8">
+               <div class="card p-3 border-0 rounded-4">
+                  <div class="card-body px-1">
+                     <table class="table table-striped">
+                        <thead class="align-middle table-dark">
+                           <tr>
+                              <th class="text-center">No</th>
+                              <th>Kode Jurusan</th>
+                              <th>Nama Jurusan</th>
+                              <th class="text-center">Status</th>
+                              <th class="text-center">Aksi</th>
+                           </tr>
+                        </thead>
+                     </table>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </main>
+
    <!-- Import Bootstrap JS -->
-   <script src="../assets/js/bootstrap.bundle.js"></script>
+   <script src="../../assets/js/bootstrap.bundle.js"></script>
 </body>
 
 </html>
