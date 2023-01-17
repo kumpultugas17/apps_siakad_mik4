@@ -145,6 +145,22 @@ if (!isset($_SESSION['email'])) {
                               <th class="text-center">Aksi</th>
                            </tr>
                         </thead>
+                        <tbody>
+                           <?php
+                           require_once '../../config.php';
+                           $no = 1;
+                           $query = $conn->query("SELECT * FROM jurusan ORDER BY created_at DESC");
+                           foreach ($query as $data) :
+                           ?>
+                              <tr>
+                                 <td class="text-center"><?= $no++ ?></td>
+                                 <td><?= $data['kode_jurusan'] ?></td>
+                                 <td><?= $data['nama_jurusan'] ?></td>
+                                 <td class="text-center"><?= $data['status'] ?></td>
+                                 <td class="text-center"></td>
+                              </tr>
+                           <?php endforeach ?>
+                        </tbody>
                      </table>
                   </div>
                </div>
